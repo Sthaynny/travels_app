@@ -1,8 +1,8 @@
 <p align="center">
-   <img src="https://user-images.githubusercontent.com/46109133/149638236-08219c77-c837-4883-b428-8bd5c864e850.png" alt="dt money" width="200"/>
+   <img src="https://user-images.githubusercontent.com/46109133/236302177-f6c8509b-6124-47b9-ba9e-2d12b06fcd3e.png" alt="dt money" width="200"/>
 </p>
 
-<h1 align="center">Nome do projeto</h1>
+<h1 align="center">Travels app</h1> 
 
 <p align="center">
    <a href="https://www.linkedin.com/in/igor-sthaynny/">
