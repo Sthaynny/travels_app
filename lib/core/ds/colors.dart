@@ -67,14 +67,17 @@ abstract class DSColor {
   ///$color-background-gradient
   ///
   ///#0A4A33 -> #50C170
-  static const gradient = RadialGradient(
-    colors: [
-      DSColor.auxiliary,
-      DSColor.primary,
-    ],
-    focal: Alignment.bottomLeft,
-    radius: 6,
-  );
+  static const gradient = LinearGradient(
+      colors: [
+        primary,
+        greyScale,
+      ],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      stops: [
+        0.1,
+        0.9,
+      ]);
 
   static final themeData = ThemeData(
     primaryColor: primary,
