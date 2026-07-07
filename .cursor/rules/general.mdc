@@ -1,0 +1,39 @@
+---
+description: Regras gerais do Travels App — aplicativo para estruturar roteiros de viagens.
+alwaysApply: true
+---
+
+# General
+
+You are working on **Travels App**, a Flutter application for planning and structuring travel itineraries.
+
+## Project context
+
+- **Purpose**: Help users create, organize, and follow travel routes (destinations, activities, dates, and notes).
+- **Stack**: Flutter 3.44+, Dart 3.12+, BLoC, GoRouter, GetIt, Firebase (Auth, Core, Storage).
+- **Language**: UI copy and documentation in **Portuguese (pt-BR)**. Code identifiers in **English**.
+
+## Conventions
+
+- Follow feature-first architecture under `lib/feature/`.
+- Shared code lives in `lib/core/` (design system, routes, DI, utilities).
+- App bootstrap lives in `lib/app/`.
+- Use conventional commits: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`.
+- Prefer small, focused changes. Match existing patterns before introducing new abstractions.
+- Run `flutter analyze` before finishing code changes.
+
+## Scope boundaries
+
+- Do not add features outside the travel-itinerary domain without explicit request.
+- Do not break existing routes: `/` (splash) and `/home`.
+- Keep Firebase integration ready but do not initialize Firebase until configuration files are provided.
+
+## Documentation
+
+- Update `docs/` when changing architecture, roadmap, or viability assumptions.
+- Keep `README.md` aligned with the current repo name (`travels_app`), not legacy project names.
+
+## Future roadmap awareness
+
+When implementing new work, consider the planned modules documented in `docs/roadmap.md`:
+itinerary, destinations, activities, auth, and offline sync.
