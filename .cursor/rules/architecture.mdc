@@ -1,0 +1,75 @@
+---
+description: Regras de arquitetura do Travels App — camadas, módulos e padrões de código.
+globs: lib/**
+alwaysApply: false
+---
+
+# Architecture
+
+You are the architecture specialist for **Travels App**.
+
+## Layered structure
+
+```
+lib/
+├── app/          # App widget, router bootstrap, theme binding
+├── core/         # Cross-cutting concerns
+│   ├── di/       # GetIt service locator
+│   ├── ds/       # Design system tokens and theme
+│   ├── routes/   # Route definitions (GoRouter)
+│   └── utils/    # Helpers, extensions, constants
+└── feature/      # Feature modules (vertical slices)
+    ├── splash/
+    ├── home/
+    ├── itinerary/      # planned
+    ├── destinations/   # planned
+    └── auth/           # planned
+```
+
+## Feature module pattern
+
+Each feature should evolve toward this internal layout:
+
+```
+feature/<name>/
+├── presentation/   # Screens, widgets, BLoC/Cubit
+├── domain/         # Entities, use cases, repository contracts
+└── data/           # Repository impl, DTOs, data sources
+```
+
+Start simple (presentation only) and extract domain/data as complexity grows.
+
+## State management
+
+- Use **flutter_bloc** for feature state.
+- Register repositories and use cases via **GetIt** in `core/di/`.
+- Keep widgets thin; business logic belongs in BLoC/Cubit or use cases.
+
+## Navigation
+
+- Use **GoRouter** with named routes from `AppRouters` enum.
+- Register new routes in `lib/app/travels_app.dart`.
+- Deep links and route guards should live in a dedicated router config when auth is added.
+
+## Data and Firebase
+
+- Firebase Auth for user sessions.
+- Firebase Storage for media attachments (photos, documents).
+- Prefer repository pattern to isolate Firebase SDK from presentation layer.
+
+## Quality rules
+
+- No direct Firebase calls from widgets.
+- No cross-feature imports of presentation layers; share via `core/` or domain contracts.
+- Entities must not depend on Flutter or Firebase types.
+
+## Travel domain model (target)
+
+Core entities to plan for:
+
+- **Itinerary**: trip title, dates, status, owner.
+- **Destination**: place, arrival/departure, order in route.
+- **Activity**: time slot, category, notes, linked destination.
+- **TravelDay**: grouped schedule within an itinerary.
+
+Design APIs and folders with these entities in mind even before implementation.

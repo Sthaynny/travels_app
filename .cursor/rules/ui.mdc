@@ -1,0 +1,67 @@
+---
+description: Regras de UI e design system do Travels App — tokens, componentes e experiência do usuário.
+globs: lib/core/ds/**,lib/feature/**
+alwaysApply: false
+---
+
+# UI
+
+You are the UI/UX specialist for **Travels App**.
+
+## Design system location
+
+All visual tokens live under `lib/core/ds/`:
+
+- `colors.dart` — brand palette (`DSColor`)
+- `basic_tokens/` — typography, spacing, radius, shadows, opacity
+
+Always consume tokens from the design system. Do not hardcode colors or font sizes in feature screens.
+
+## Typography
+
+- Primary families: **DM Sans** and **Roboto** via `google_fonts`.
+- Use presets from `DSFontStyle` (headline, subtitle, body, button, caption).
+- Extend with `TextStyleExt.setColor()` when needed.
+
+## Color usage
+
+| Token | Usage |
+|-------|-------|
+| `DSColor.primary` | Brand actions, splash, key highlights |
+| `DSColor.secundary` | Secondary accents |
+| `DSColor.auxiliary` | Soft backgrounds |
+| `DSColor.error` / `alert` / `success` | Feedback states |
+| `DSColor.greyScale` | Neutral text and borders |
+
+## Component guidelines
+
+- Build reusable widgets under `lib/core/ds/components/` as the library grows.
+- Prefer `const` constructors where possible.
+- Use `Scaffold` with consistent padding (16px mobile baseline).
+- Loading states: prefer Lottie animations from `assets/`.
+
+## Travel UX principles
+
+1. **Clarity over density** — itineraries must be scannable (day → destination → activity).
+2. **Progressive disclosure** — show summary first, details on tap.
+3. **Offline-friendly cues** — indicate sync status when connectivity features arrive.
+4. **Thumb-zone actions** — primary actions at the bottom on mobile.
+5. **Empty states** — every list screen needs a helpful empty state with a CTA.
+
+## Accessibility
+
+- Minimum touch target: 48x48 logical pixels.
+- Contrast ratio ≥ 4.5:1 for body text.
+- Provide semantic labels for icons (map pin, calendar, route).
+
+## Animation
+
+- Splash transition: max 3–5 seconds, then navigate.
+- Page transitions: use GoRouter defaults until custom transitions are defined.
+- Lottie files stay in `assets/`; reference by filename only.
+
+## Do not
+
+- Introduce new font families without updating the design system.
+- Use Material defaults that conflict with `DSColor.themeData`.
+- Add platform-specific UI without responsive fallbacks.

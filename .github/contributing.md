@@ -1,61 +1,49 @@
-# Bem-vindo guia de Contribuição <!-- omitir em toc -->
+# Guia de contribuição
 
-Obrigado por investir o seu tempo a contribuir para o nosso projecto! Qualquer contribuição que der será reflectida no [app](https://github.com/Sthaynny/habilitacao_quiz) :sparkles:. 
+Obrigado por contribuir com o **Travels App** — aplicativo Flutter para estruturar roteiros de viagens.
 
-## Novo guia de contribuição
+## Antes de começar
 
-Para obter uma visão geral do projecto, leia o [README](README.md). Aqui estão alguns recursos para o ajudar a começar com as contribuições de código aberto:
+1. Leia o [README](../README.md) e a [arquitetura](../docs/architecture.md)
+2. Verifique os [tipos de contribuição](./types-of-contributions.md) aceitos
+3. Consulte o [roadmap](../docs/roadmap.md) para alinhar sua contribuição às fases do projeto
 
-- [Criar o Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
-- [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow)
-- [Colaborando com pedidos de puxar](https://docs.github.com/en/github/collaborating-with-pull-requests)
+## Fluxo de trabalho
 
+1. Faça um **fork** do repositório
+2. Crie uma branch a partir de `main`:
+   ```bash
+   git checkout -b feat/minha-feature
+   ```
+3. Implemente seguindo as convenções do projeto:
+   - Código em inglês, documentação e UI em português
+   - Commits no padrão [Conventional Commits](https://www.conventionalcommits.org/)
+   - `flutter analyze` sem erros
+4. Envie um **Pull Request** usando o [template](./pull_request_template.md)
 
-## Começando
+## Padrões de código
 
-Verifique para ver quais [tipos de contribuições](https://github.com/Sthaynny/habilitacao_quiz/blob/main/.github/types-of-contributions.md) aceitamos antes de fazer alterações. Algumas delas nem sequer requerem a escrita de uma única linha de código :sparkles:.
+- Arquitetura feature-first (`lib/feature/`)
+- Estado com `flutter_bloc`
+- Navegação com `go_router`
+- Tokens visuais do design system em `lib/core/ds/`
+- Não acesse Firebase diretamente de widgets
 
-### Questões
+## Hooks de pré-commit
 
-#### Criar um novo número
+```bash
+cp pre-commit .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
+```
 
-Se detectar um problema com os documentos, [procure se já existe um problema](https://github.com/Sthaynny/habilitacao_quiz/issues?q=is%3Aopen). Se um problema relacionado não existir, pode abrir um novo número usando um formulário [issue form](https://github.com/Sthaynny/habilitacao_quiz/issues/issues/new/choose) relevante. 
+O hook executa formatação e verificação de estilo antes de cada commit.
 
-#### Resolver um problema
+## Issues
 
-Digitalize através das nossas [questões existentes](https://github.com/github/docs/issues) para encontrar uma que lhe interesse. Pode restringir a pesquisa utilizando "rótulos" como filtros. Ver [Rótulos](https://github.com/github/docs/blob/main/contributing/how-to-use-labels.md) para mais informações. Como regra geral, não atribuímos questões a ninguém. Se encontrar um problema para trabalhar, é bem-vindo a abrir um RP com uma correcção.
+- Pesquise issues existentes antes de abrir uma nova
+- Use o [template de issue](./issue_template.md)
+- Vincule o PR à issue correspondente
 
-### Fazer alterações
+## Dúvidas
 
-#### Fazer alterações na IU
-
-Clique **Faça uma contribuição** no fundo de qualquer página de documentos para fazer pequenas alterações tais como um texto, correcção de frases, ou um link quebrado. Isto leva-o ao ficheiro `.md` onde pode fazer as suas alterações e [criar um pedido de PR](#pull-request) para uma revisão. 
-
- <img src="https://user-images.githubusercontent.com/46109133/155049100-b764afe1-d268-44dc-90b3-40a0367d925d.png" width="300" height="150" /> 
-
-#### Fazer alterações localmente
-
-1. [Instalar Git LFS](https://docs.github.com/en/github/managing-large-files/versioning-large-files/installing-git-large-file-storage).
-
-2. Fork o repositório.
-- Usar o GitHub Desktop:
-  - [Começar a usar GitHub Desktop](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop) irá guiá-lo através da configuração do Desktop.
-  - Uma vez configurado o Desktop, pode utilizá-lo para o [Fork no repo](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)!
-
-- Usando a linha de comando:
-  - [Fork o repo](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) para que possa fazer as suas alterações sem afectar o projecto original até estar pronto para as fundir.
-
-- GitHub Codespaces:
-  - [Fork, edit, and preview](https://docs.github.com/en/free-pro-team@latest/github/developing-online-with-codespaces/criar um espaço de códigos) usando [GitHub Codespaces](https://github.com/features/codespaces) sem ter de instalar e executar o projecto localmente.
-
-4. Crie um ramo de trabalho e comece com as suas alterações!
-
-### Comprometa a sua actualização
-
-Assim que as suas alterações estiverem prontas, não se esqueça de auto-revisão para acelerar o processo de revisão :zap:.
-
-### Pedido de Puxar
-
-Quando terminar as alterações, crie um pedido de Pull Request, também conhecido como PR.
-- Preencha o modelo "Ready for review" para que possamos rever as suas relações públicas. Este modelo ajuda os revisores a compreender as suas alterações, bem como a finalidade do seu pedido de extracção. 
-- Não se esqueça de ligar PR para emitir;
+Abra uma [issue](https://github.com/Sthaynny/travels_app/issues) ou entre em contato via [LinkedIn](https://www.linkedin.com/in/igor-sthaynny/).
